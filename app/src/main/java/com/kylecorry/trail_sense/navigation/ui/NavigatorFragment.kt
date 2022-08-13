@@ -1,6 +1,7 @@
 package com.kylecorry.trail_sense.navigation.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -312,6 +313,12 @@ class NavigatorFragment : BoundFragment<ActivityNavigatorBinding>() {
         }
         binding.linearCompass.setOnClickListener {
             toggleDestinationBearing()
+        }
+        binding.zoomOutBtn.setOnClickListener {
+            binding.radarCompass.changeScale(0.75F)
+        }
+        binding.zoomInBtn.setOnClickListener {
+            binding.radarCompass.changeScale(1.25F)
         }
     }
 

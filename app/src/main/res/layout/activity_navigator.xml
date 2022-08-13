@@ -130,6 +130,24 @@
         app:srcCompat="@drawable/ic_camera" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/zoomInBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/ic_add"
+        app:layout_constraintEnd_toEndOf="@+id/round_compass"
+        app:layout_constraintTop_toBottomOf="@+id/round_compass" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/zoomOutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/ic_zoom_out"
+        app:layout_constraintStart_toStartOf="@+id/round_compass"
+        app:layout_constraintTop_toBottomOf="@+id/round_compass" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/beaconBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.Path
 import android.util.AttributeSet
+import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
@@ -87,6 +88,15 @@ class RadarCompassView : BaseCompassView, IMapView {
 
     fun setOnSingleTapListener(action: (() -> Unit)?) {
         singleTapAction = action
+    }
+
+    fun changeScale(scaleFactor: Float) {
+        if (scaleFactor <= 0F) return
+        prefs.navigation.maxBeaconDistance /= scaleFactor
+        if (prefs.navigation.maxBeaconDistance < 0.05F) prefs.navigation.maxBeaconDistance = 0.05F
+        maxDistanceMeters = Distance.meters(prefs.navigation.maxBeaconDistance)
+        maxDistanceBaseUnits = maxDistanceMeters.convertTo(prefs.baseDistanceUnits)
+        layers.forEach { it.invalidate() }
     }
 
     private fun drawDestination() {
